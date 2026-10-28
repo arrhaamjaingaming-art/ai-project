@@ -1,0 +1,18 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Users collection: users can read and write their own document matching their Auth UID
+    match /users/{userId} {
+      allow read: if request.auth != null && request.auth.uid == userId;
+      allow create, update: if request.auth != null 
+                            && request.auth.uid == userId 
+                            && request.resource.data.id == request.auth.uid;
+      allow delete: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // Default deny all other paths
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

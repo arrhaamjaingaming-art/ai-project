@@ -1,0 +1,6 @@
+{
+  "name": "Agri Defence — AI Crop Doctor & Plant Health",
+  "description": "Plantix-inspired agricultural disease scanner, AI plant doctor assistant, crop health analytics, and advisory in 12 languages.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
